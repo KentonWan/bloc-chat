@@ -18,10 +18,10 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="room-navigation">
-        <header className="App-header">
-          <h1>Bloc Chat</h1>
+          <header className="App-header">
+            <h1>Bloc Chat</h1>
           </header>
-          <RoomList firebase={firebase}/>
+          <RoomList firebase={firebase} />
         </nav>
       </div>
     );
