@@ -21,7 +21,8 @@ class App extends Component {
           <h1>Bloc Chat</h1>
           </header>
         <nav className="room-navigation">
-          <RoomList firebase={firebase}/>
+          <RoomList firebase={firebase}
+                    />
         </nav>
       </div>
     );
