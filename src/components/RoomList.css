@@ -1,0 +1,16 @@
+.room-list {
+  font-family: avenir;
+}
+
+.chat-room-list {
+  list-style: none;
+}
+
+.chat-form {
+  text-align: center;
+
+}
+
+.submit-button {
+  text-align: center;
+}

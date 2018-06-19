@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import './RoomList.css';
 
 class RoomList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       rooms: [],
-      value: ''
+      value: 'Name'
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
@@ -33,19 +34,24 @@ class RoomList extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
+      <div className="room-list">
+        <ul className="chat-room-list">
         {
           this.state.rooms.map((room,index) =>
             <li key={index} className="room-number">{room.name}</li>
           )
         }
         </ul>
-        <form onSubmit={()=>this.createRoom()}>
-          <label>
-            Chat Room Name:  <input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)} />
-          </label>
-          <input type="submit" value="Submit"/>
+        <form className="chat-form" onSubmit={()=>this.createRoom()}>
+          <div>
+            <label>
+              <div>Add Chat Room:</div>
+              <div><input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)} /></div>
+            </label>
+          </div>
+          <div className="submit-button">
+            <input type="submit" value="Submit"/>
+          </div>
         </form>
       </div>
     );
