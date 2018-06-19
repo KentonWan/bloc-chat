@@ -4,11 +4,16 @@ import './RoomList.css';
 class RoomList extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       rooms: [],
       value: ''
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
+
+
+
+
   }
 
   componentDidMount () {
@@ -42,7 +47,7 @@ class RoomList extends Component {
         <ul className="chat-room-list">
         {
           this.state.rooms.map((room,index) =>
-            <li key={index} className="room-number">{room.name}</li>
+              <li key={index} className="room-number">{room.name}</li>
           )
         }
         </ul>

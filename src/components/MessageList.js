@@ -1,10 +1,16 @@
 import React, { Component} from 'react';
 
+
 class MessageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [],
+      messages: [{
+        username: "",
+        content: "",
+        sentAt: "",
+        roomID: ""
+      }],
 
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -14,7 +20,7 @@ class MessageList extends Component {
     this.roomsRef.on('child_added', snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
-      this.setState({messsages: this.state.messages.concat(message )});
+      this.setState({messages: this.state.messages.concat(message )});
     });
   }
 
