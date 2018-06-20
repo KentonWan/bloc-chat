@@ -7,7 +7,8 @@ class RoomList extends Component {
 
     this.state = {
       rooms: [],
-      value: ''
+      value: '',
+      currentRoom: ''
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
 
@@ -41,13 +42,17 @@ class RoomList extends Component {
 
   }
 
+  handleClick(index) {
+    this.setState({currentRoom: index });
+  }
+
   render() {
     return (
       <div className="room-list">
         <ul className="chat-room-list">
         {
           this.state.rooms.map((room,index) =>
-              <li key={index} className="room-number">{room.name}</li>
+               <li key={index} className="room-number" value={room} onClick={()=>this.handleClick(index)}>{room.name}</li>
           )
         }
         </ul>
