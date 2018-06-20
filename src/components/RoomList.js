@@ -12,9 +12,6 @@ class RoomList extends Component {
     };
     this.roomsRef = this.props.firebase.database().ref('rooms');
 
-
-
-
   }
 
   componentDidMount () {
@@ -42,19 +39,13 @@ class RoomList extends Component {
 
   }
 
-  handleClick(room) {
-    let clickedRoom = room.key;
-    console.log(clickedRoom);
-    this.setState({currentRoom: clickedRoom});
-  }
-
   render() {
     return (
       <div className="room-list">
         <ul className="chat-room-list">
         {
           this.state.rooms.map((room,index) =>
-               <li key={index} className="room-number" value={room} onClick={this.props.updateRoom(room)}>{room.name}</li>
+               <li key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room.key)}>{room.name}</li>
           )
         }
         </ul>

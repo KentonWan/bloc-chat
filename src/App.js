@@ -22,9 +22,9 @@ class App extends Component {
     }
   }
 
-  updateRoom(){
-    let clickedRoom;
-    this.setState({activeRoom: clickedRoom})
+  updateRoom(roomId){
+    console.log(roomId);
+    this.setState({activeRoom: roomId});
   }
 
   render() {
@@ -34,7 +34,7 @@ class App extends Component {
           <header className="App-header">
             <h1>Bloc Chat</h1>
           </header>
-          <RoomList firebase={firebase} updateRoom={ () => this.updateRoom()}/>
+          <RoomList firebase={firebase} updateRoom={this.updateRoom.bind(this)}/>
         </nav>
         <section className="message list">
           <MessageList firebase={firebase} />
