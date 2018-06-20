@@ -22,10 +22,11 @@ class App extends Component {
     }
   }
 
-  handleClick(){
-    this.setState({value: this.props.room.name})
-
+  updateRoom(){
+    let clickedRoom;
+    this.setState({activeRoom: clickedRoom})
   }
+
   render() {
     return (
       <div className="App">
@@ -33,7 +34,7 @@ class App extends Component {
           <header className="App-header">
             <h1>Bloc Chat</h1>
           </header>
-          <RoomList firebase={firebase} />
+          <RoomList firebase={firebase} updateRoom={ () => this.updateRoom()}/>
         </nav>
         <section className="message list">
           <MessageList firebase={firebase} />
