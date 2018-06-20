@@ -42,8 +42,10 @@ class RoomList extends Component {
 
   }
 
-  handleClick(index) {
-    this.setState({currentRoom: index });
+  handleClick(room) {
+    let clickedRoom = room.key;
+    console.log(clickedRoom);
+    this.setState({currentRoom: clickedRoom});
   }
 
   render() {
@@ -52,7 +54,7 @@ class RoomList extends Component {
         <ul className="chat-room-list">
         {
           this.state.rooms.map((room,index) =>
-               <li key={index} className="room-number" value={room} onClick={()=>this.handleClick(index)}>{room.name}</li>
+               <li key={index} className="room-number" value={room} onClick={()=>this.handleClick(room)}>{room.name}</li>
           )
         }
         </ul>
