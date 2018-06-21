@@ -19,12 +19,18 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-                  activeRoom: ''
+                  activeRoom: '',
+                  user: ''
     }
   }
 
   updateRoom(roomId){
     this.setState({activeRoom: roomId});
+  }
+
+  setUser(currentUser){
+    this.setState({user: currentUser});
+    console.log(currentUser);
   }
 
   render() {
@@ -35,7 +41,7 @@ class App extends Component {
             <h1>Bloc Chat</h1>
           </header>
           <div className="logIn">
-            <User firebase={firebase}/>
+            <User firebase={firebase} setUser={this.setUser.bind(this)} user={this.state.user}/>
           </div>
           <RoomList firebase={firebase} updateRoom={this.updateRoom.bind(this)}/>
         </nav>
