@@ -9,15 +9,16 @@ class MessageList extends Component {
         username: "",
         content: "",
         sentAt: "",
-        roomID: ""
+        roomId: ""
       }],
 
     };
-    this.roomsRef = this.props.firebase.database().ref('rooms');
+    this.messagesRef = this.props.firebase.database().ref('messages');
   }
 
   componentDidMount () {
-    this.roomsRef.on('child_added', snapshot => {
+    console.log (this.props.activeRoom);
+    this.messagesRef.orderByChild("roomId").equalTo(this.props.activeRoom).on('child_added', snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
       this.setState({messages: this.state.messages.concat(message )});
@@ -26,8 +27,11 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Message List</h1>
+      <div className="messages">
+        {this.state.messages.map( (message, index) =>
+          <div key={index}>{message.content}</div>
+        )}
+      <div>{this.props.activeRoom}</div>
       </div>
     )
   }
