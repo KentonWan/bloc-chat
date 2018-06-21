@@ -3,6 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 
 var config = {
     apiKey: "AIzaSyAgtJqQDyrWpyTIeQcSSXTC5DuWMSpeJrc",
@@ -33,6 +34,9 @@ class App extends Component {
           <header className="App-header">
             <h1>Bloc Chat</h1>
           </header>
+          <div className="logIn">
+            <User firebase={firebase}/>
+          </div>
           <RoomList firebase={firebase} updateRoom={this.updateRoom.bind(this)}/>
         </nav>
         <section className="message list">
