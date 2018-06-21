@@ -25,14 +25,46 @@ class MessageList extends Component {
       this.setState({messages: this.state.messages.concat(message )});
     });
 
+  }
 
+  createMessage(e) {
+    e.preventDefault();
+    this.messagesRef.push({
+      username: this.props.user,
+      content: this.state.messages,
+      sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
+      roomId: this.props.activeRoom
+    })
+    this.setState=({
+      username: "",
+      content: "",
+      sentAt: "",
+      roomId: ""
+    });
+  }
+
+  handleChange(e){
+    e.preventDefault();
+    this.setState({content: e.target.value});
   }
 
   render() {
     return (
-      <div className="messages">
-        {this.state.messages.filter(message => message.roomId === this.props.activeRoom).map((message,index)=>
-        <div className={index}>{message.content}</div>)}
+      <div>
+        <div className="messages">
+          {this.state.messages.filter(message => message.roomId === this.props.activeRoom).map((message,index)=>
+          <div className={index}>{message.content}</div>)}
+        </div>
+        <div className="newMessage">
+          <form className="message-form" onSubmit={(e)=>this.createMessage(e)}>
+            <div>
+              <input type="text" placeHolder="Write Your Message Here" onChange={(e)=>this.handleChange(e)} />
+            </div>
+            <div className="submit-button">
+              <input type="submit" value="Submit"/>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

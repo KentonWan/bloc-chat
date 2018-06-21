@@ -47,7 +47,8 @@ class App extends Component {
         </nav>
         <section className="message list">
           <MessageList firebase={firebase}
-                       activeRoom = {this.state.activeRoom}/>
+                       activeRoom = {this.state.activeRoom}
+                       user = {this.state.user}/>
         </section>
       </div>
     );
