@@ -42,6 +42,7 @@ class RoomList extends Component {
     return (
       <div className="room-list">
         <ul className="chat-room-list">
+          <li className="chat-title">Chat Rooms:</li>
         {
           this.state.rooms.map((room,index) =>
                <li key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</li>

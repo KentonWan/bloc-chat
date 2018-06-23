@@ -11,6 +11,10 @@
 
 }
 
+.chat-title {
+  font-weight: bold;
+}
+
 .chat-form {
   text-align: center;
   font-size: .9em;
@@ -23,11 +27,16 @@
   margin: 1.5px;
 }
 
+.submit-button:hover {
+  box-shadow: 1px 1px #696969;
+
+}
+
 .room-number {
   padding-left: 0;
   margin-left: 0;
 }
 
 .room-number:hover{
-  font-weight: bold;
+  text-decoration: underline;
 }
