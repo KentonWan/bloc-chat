@@ -1,0 +1,41 @@
+.chatroom-name {
+  margin-top: 28px;
+  height: 50px;
+  text-decoration: underline;
+  font-size:1em;
+}
+
+.newMessage {
+  position: fixed;
+  bottom: 0;
+}
+
+.messageBox {
+  font-size: 0.9em;
+}
+
+.sendButton {
+  font-size: .9em;
+}
+
+.sendButton:hover {
+  box-shadow: 2px 2px #D3D3D3;
+}
+
+.message-block {
+  padding-top: 15px;
+}
+.message-username {
+  font-size: 0.75em;
+  font-weight: bold;
+
+}
+.message-content {
+  font-size: 0.75em;
+}
+
+.message-sentAt {
+  font-size: 0.75em;
+  font-style: italic;
+  color: #808080;
+}

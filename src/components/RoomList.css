@@ -1,16 +1,33 @@
 .room-list {
   font-family: avenir;
+  text-align: left;
+  padding: 0;
+  margin: 0;
 }
 
 .chat-room-list {
   list-style: none;
+  font-size: .9em;
+
 }
 
 .chat-form {
   text-align: center;
+  font-size: .9em;
 
 }
 
 .submit-button {
   text-align: center;
+  font-size: .75em;
+  margin: 1.5px;
+}
+
+.room-number {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.room-number:hover{
+  font-weight: bold;
 }

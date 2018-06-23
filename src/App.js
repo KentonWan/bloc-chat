@@ -20,12 +20,13 @@ class App extends Component {
     super(props);
     this.state = {
                   activeRoom: '',
+                  activeRoomId: '',
                   user: ''
     }
   }
 
   updateRoom(roomId){
-    this.setState({activeRoom: roomId});
+    this.setState({activeRoomId: roomId.key, activeRoom: roomId.name});
   }
 
   setUser(currentUser){
@@ -45,9 +46,10 @@ class App extends Component {
           </div>
           <RoomList firebase={firebase} updateRoom={this.updateRoom.bind(this)}/>
         </nav>
-        <section className="message list">
-          <MessageList firebase={firebase}
+        <section className="message-list">
+        <MessageList firebase={firebase}
                        activeRoom = {this.state.activeRoom}
+                       activeRoomId = {this.state.activeRoomId}
                        user = {this.state.user}/>
         </section>
       </div>

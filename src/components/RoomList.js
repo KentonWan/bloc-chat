@@ -31,7 +31,6 @@ class RoomList extends Component {
   createRoom(e) {
     e.preventDefault();
     let newRoomName = this.state.value;
-    console.log(newRoomName);
     this.roomsRef.push({
       name: newRoomName
     })
@@ -45,7 +44,7 @@ class RoomList extends Component {
         <ul className="chat-room-list">
         {
           this.state.rooms.map((room,index) =>
-               <li key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room.key)}>{room.name}</li>
+               <li key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</li>
           )
         }
         </ul>
@@ -53,12 +52,14 @@ class RoomList extends Component {
           <div>
             <label>
               <div>Add Chat Room:</div>
-              <div><input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)} /></div>
+              <div>
+                <input type="text" value={this.state.value} placeHolder="Chat Room Name" onChange={(e)=>this.handleChange(e)} />
+                <input className="submit-button" type="submit" value="Add"/>
+              </div>
             </label>
+
           </div>
-          <div className="submit-button">
-            <input type="submit" value="Submit"/>
-          </div>
+
         </form>
       </div>
     );

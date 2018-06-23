@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import './User.css';
 
 
 class User extends Component {
@@ -27,12 +28,10 @@ componentDidMount() {
 
   render() {
     return (
-      <div>
-        <div>{this.props.user === null ? "Guest" : this.props.user.displayName}</div>
-        <div className="signIn">
+      <div className="user-login">
+        <div>Logged in as: {this.props.user === null ? "Guest" : this.props.user.displayName}</div>
+        <div className="signInOutButtons">
           <button className="signInButton" onClick={() => {this.signIn()}}>Sign In</button>
-        </div>
-        <div className="signOut">
           <button className="signOutButton" onClick={() => {this.signOut()}}>Sign Out</button>
         </div>
       </div>

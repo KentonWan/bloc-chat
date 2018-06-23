@@ -1,24 +1,32 @@
 .App {
+  display: block;
+  height: 100%;
 
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  height: 50px;
   color: white;
+  padding: 20px;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .room-navigation {
   float: left;
   list-style: none;
+  background-color: #C0C0C0;
+  width: 20%;
+  height: 100%;
 }
 
-.App-intro {
-  font-size: large;
+.message-list {
+  float: right;
+  margin: 20px;
+  width: 75%;
+
 }
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

@@ -1,0 +1,28 @@
+.user-login {
+  text-align: center;
+  padding: 10px;
+  font-size: .9em;
+}
+
+.signInOutButtons {
+  margin: 5px;
+}
+
+.signInButton {
+  margin: 3px;
+  font-size: .75em;
+
+}
+
+.signOutButton {
+  margin: 3px;
+  font-size: .75em;
+
+}
+.signInButton:hover {
+  box-shadow: 1px 1px #D3D3D3;
+}
+
+.signOutButton:hover {
+  box-shadow: 1px 1px #D3D3D3;
+}
