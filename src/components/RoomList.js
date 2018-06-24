@@ -44,8 +44,14 @@ class RoomList extends Component {
                    name: window.prompt("Please enter a new room name")};
     this.roomsRef.child(this.props.activeRoomId).update({name: updatedName.name});
     this.props.updateRoom(updatedName);
-
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.activeRoom !== nextProps.activeRoom) {
+      this.setState({rooms: this.state.rooms})
+  }
+
+}
 
   deleteRoom(e) {
     e.preventDefault();
