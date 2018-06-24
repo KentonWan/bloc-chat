@@ -64,7 +64,7 @@ class MessageList extends Component {
         </div>
         <div className="messages">
           {this.state.messages.filter(message => message.roomId === this.props.activeRoomId).map((message,index)=>
-          <div className="message-block">
+          <div key={index} className="message-block">
             <div className="message-username">{message.username}</div>
             <div className="message-content">{message.content}<span className="message-sentAt">{message.sentAt}</span></div>
           </div>)}
@@ -72,7 +72,7 @@ class MessageList extends Component {
         <div className="newMessage">
           <form className="message-form" onSubmit={(e)=>this.createMessage(e)}>
             <div>
-              <input className="messageBox" type="text" size="90" value={this.state.content} placeHolder="Type message here" onChange={(e)=>this.handleChange(e)} /><input className="sendButton" type="submit" value="Send"/>
+              <input className="messageBox" type="text" size="90" value={this.state.content} placeholder="Type message here" onChange={(e)=>this.handleChange(e)} /><input className="sendButton" type="submit" value="Send"/>
             </div>
           </form>
         </div>

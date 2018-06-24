@@ -20,7 +20,6 @@ class RoomList extends Component {
       room.key = snapshot.key;
       this.setState({rooms: this.state.rooms.concat(room )});
     });
-    console.log(this.roomsRef)
   }
 
   handleChange(e) {
@@ -36,6 +35,15 @@ class RoomList extends Component {
       name: newRoomName
     })
     this.setState({value: ''});
+
+  }
+
+  renameRoom(e) {
+    e.preventDefault();
+    let updatedName = {key: this.props.activeRoomId,
+                   name: window.prompt("Please enter a new room name")};
+    this.roomsRef.child(this.props.activeRoomId).update({name: updatedName.name});
+    this.props.updateRoom(updatedName);
 
   }
 
@@ -65,12 +73,15 @@ class RoomList extends Component {
             <label>
               <div>Add Chat Room:</div>
               <div>
-                <input type="text" value={this.state.value} placeHolder="Chat Room Name" onChange={(e)=>this.handleChange(e)} />
+                <input type="text" value={this.state.value} placeholder="Chat Room Name" onChange={(e)=>this.handleChange(e)} />
                 <input className="submit-button" type="submit" value="Add"/>
               </div>
             </label>
           </div>
         </form>
+        <div className="rename-room">
+            <button className="renameRoomButton" onClick={(e)=>this.renameRoom(e)}>Rename Current Room</button>
+        </div>
         <div className="delete-room">
             <button className="deleteRoomButton" onClick={(e)=>this.deleteRoom(e)}>Delete Current Room</button>
         </div>
