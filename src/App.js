@@ -26,7 +26,11 @@ class App extends Component {
   }
 
   updateRoom(roomId){
+    if (roomId === '') {
+      this.setState({activeRoomId: '', activeRoom: ''})
+    } else {
     this.setState({activeRoomId: roomId.key, activeRoom: roomId.name});
+    }
   }
 
   setUser(currentUser){
@@ -44,7 +48,9 @@ class App extends Component {
           <div className="logIn">
             <User firebase={firebase} setUser={this.setUser.bind(this)} user={this.state.user}/>
           </div>
-          <RoomList firebase={firebase} updateRoom={this.updateRoom.bind(this)}/>
+          <RoomList firebase={firebase}
+                    updateRoom={this.updateRoom.bind(this)}
+                    activeRoomId={this.state.activeRoomId}/>
         </nav>
         <section className="message-list">
         <MessageList firebase={firebase}

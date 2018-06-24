@@ -20,6 +20,7 @@ class RoomList extends Component {
       room.key = snapshot.key;
       this.setState({rooms: this.state.rooms.concat(room )});
     });
+    console.log(this.roomsRef)
   }
 
   handleChange(e) {
@@ -38,6 +39,14 @@ class RoomList extends Component {
 
   }
 
+  deleteRoom(e) {
+    e.preventDefault();
+    const updatedRooms = this.state.rooms.filter(room => room.key !== this.props.activeRoomId)
+    this.setState({rooms: updatedRooms})
+    this.props.updateRoom('');
+  }
+
+
   render() {
     return (
       <div className="room-list">
@@ -45,7 +54,7 @@ class RoomList extends Component {
           <li className="chat-title">Chat Rooms:</li>
         {
           this.state.rooms.map((room,index) =>
-               <li key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</li>
+               <li id={room.key} key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</li>
           )
         }
         </ul>
@@ -58,10 +67,11 @@ class RoomList extends Component {
                 <input className="submit-button" type="submit" value="Add"/>
               </div>
             </label>
-
           </div>
-
         </form>
+        <div className="delete-room">
+            <button className="deleteRoomButton" onClick={(e)=>this.deleteRoom(e)}>Delete Current Room</button>
+        </div>
       </div>
     );
   }

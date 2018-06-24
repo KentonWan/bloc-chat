@@ -40,3 +40,12 @@
 .room-number:hover{
   text-decoration: underline;
 }
+
+.delete-room {
+  text-align: center;
+  margin-top:15px;
+}
+
+.deleteRoomButton:hover {
+  box-shadow: 2px 2px #696969;
+}
