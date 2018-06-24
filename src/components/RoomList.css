@@ -46,6 +46,11 @@
   margin-top:15px;
 }
 
+.deleteRoomButton {
+}
+
 .deleteRoomButton:hover {
   box-shadow: 2px 2px #696969;
+  color: #DC143C;
+  font-weight: bold;
 }

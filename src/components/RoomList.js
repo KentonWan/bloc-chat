@@ -42,9 +42,11 @@ class RoomList extends Component {
   deleteRoom(e) {
     e.preventDefault();
     const updatedRooms = this.state.rooms.filter(room => room.key !== this.props.activeRoomId)
-    this.setState({rooms: updatedRooms})
     this.props.updateRoom('');
+    this.setState({rooms: updatedRooms})
+    this.roomsRef.child(this.props.activeRoomId).remove()
   }
+
 
 
   render() {
@@ -54,7 +56,7 @@ class RoomList extends Component {
           <li className="chat-title">Chat Rooms:</li>
         {
           this.state.rooms.map((room,index) =>
-               <li id={room.key} key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</li>
+               <li key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</li>
           )
         }
         </ul>
