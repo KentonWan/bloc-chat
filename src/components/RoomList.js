@@ -44,14 +44,19 @@ class RoomList extends Component {
                    name: window.prompt("Please enter a new room name")};
     this.roomsRef.child(this.props.activeRoomId).update({name: updatedName.name});
     this.props.updateRoom(updatedName);
+    this.roomsRef.on("child_changed", snapshot => {
+        const room = snapshot.val();
+        room.key = snapshot.key;
+        this.setState({rooms: this.state.rooms.concat(room )});
+      });
   }
 
-  componentWillReceiveProps(nextProps) {
+  /*componentWillReceiveProps(nextProps) {
     if (this.props.activeRoom !== nextProps.activeRoom) {
-      this.setState({rooms: this.state.rooms})
+      console.log(nextProps.activeRoom);
+      console.log(this.props.activeRoom);
   }
-
-}
+}*/
 
   deleteRoom(e) {
     e.preventDefault();
