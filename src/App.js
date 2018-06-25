@@ -50,7 +50,8 @@ class App extends Component {
           </div>
           <RoomList firebase={firebase}
                     updateRoom={this.updateRoom.bind(this)}
-                    activeRoomId={this.state.activeRoomId}/>
+                    activeRoomId={this.state.activeRoomId}
+                    activeRoom={this.state.activeRoom}/>
         </nav>
         <section className="message-list">
         <MessageList firebase={firebase}

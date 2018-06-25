@@ -20,6 +20,14 @@ class RoomList extends Component {
       room.key = snapshot.key;
       this.setState({rooms: this.state.rooms.concat(room )});
     });
+  this.roomsRef.on('child_changed', snapshot => {
+      const room = snapshot.val();
+      room.key = snapshot.key;
+      let oldRoomList = this.state.rooms;
+      let index = oldRoomList.findIndex(rooms => rooms.key === room.key)
+      oldRoomList[index]=room;
+      this.setState({rooms: oldRoomList})
+    });
   }
 
   handleChange(e) {
@@ -42,13 +50,13 @@ class RoomList extends Component {
     e.preventDefault();
     let updatedName = {key: this.props.activeRoomId,
                    name: window.prompt("Please enter a new room name")};
+    console.log(this.props.activeRoomId)
+    console.log(updatedName);
     this.roomsRef.child(this.props.activeRoomId).update({name: updatedName.name});
     this.props.updateRoom(updatedName);
-    this.roomsRef.on("child_changed", snapshot => {
-        const room = snapshot.val();
-        room.key = snapshot.key;
-        this.setState({rooms: this.state.rooms.concat(room )});
-      });
+    console.log(this.props.activeRoom)
+
+
   }
 
   /*componentWillReceiveProps(nextProps) {
