@@ -1,0 +1,50 @@
+1. What data types do each of these values represent?
+
+- text
+- integer
+- date
+- float
+- decimal
+
+
+2. Explain when a database would be used. Explain when a text file would be used.
+
+I would use a text file like a JSON file if I want the data to persist outside of the program and want to store objects with more information. If there will only be a single application accessing the text file, a text file may be appropriate. But if I want multiple applications to be access, search and manipulate the data that persists beyond the application process then a database is appropriate. 
+
+3. Describe one difference between SQL and other programming languages.
+
+One difference is that SQL is a declarative programming language versus procedural language. It says want it wants to find rather than how to find it. 
+
+In your own words, explain how the pieces of a database system fit together at a high level.
+
+The easiest way for me to think about the database system is that it mirrors a table structure where the columns denote what the data represents and the rows make up a conceptual unit dependent on whatever that database is storing. In each cell is a value that can differ in data type depending on what column it is in.  Then using a language I am able to query that database and get results, update the data or make new structures to store the data. 
+
+Explain the meaning of table, row, column, and value.
+
+Table: Data structure that contains all the data in columns and rows
+Columns: Denotes what each data represents
+Rows: complete conceptual unit 
+Value: what is stored in each table cell and can be different data types
+
+List three data types that can be used in a table.
+
+text, integer, float
+
+7
+a. Provide me the date and amount of all the payments
+b. Provide me all the payment amounts greater than $500
+c. Provide me all the information where the payee was Mega Foods
+
+8. 
+a. 
+SELECT email, signup
+FROM users
+WHERE user = 'DeAndre Data';
+b. 
+SELECT userid
+FROM users
+WHERE email = 'alessia.algorithm@uw.edu';
+c. 
+SELECT *
+FROM users
+WHERE userid = 4;
