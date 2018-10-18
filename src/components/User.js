@@ -25,7 +25,7 @@ componentDidMount() {
   render() {
     return (
       <div className="user-login">
-        <div>Logged in as: {this.props.user === null ? "Guest" : this.props.user.displayName}</div>
+        <div><strong>Logged in as:</strong> {this.props.user === null ? "Guest" : this.props.user.displayName}</div>
         <div className="signInOutButtons">
           <button className="signInButton" onClick={() => {this.signIn()}}>Sign In</button>
           <button className="signOutButton" onClick={() => {this.signOut()}}>Sign Out</button>

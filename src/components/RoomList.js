@@ -79,18 +79,18 @@ class RoomList extends Component {
   render() {
     return (
       <div className="room-list">
-        <ul className="chat-room-list">
-          <li className="chat-title">Chat Rooms:</li>
+        <div className="chat-room-list">
+          <p className="chat-title">Chat Rooms:</p>
         {
           this.state.rooms.map((room,index) =>
-               <li key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</li>
+               <p key={index} className="room-number" value={room.key} onClick={()=>this.props.updateRoom(room)}>{room.name}</p>
           )
         }
-        </ul>
+        </div>
         <form className="chat-form" onSubmit={(e)=>this.createRoom(e)}>
           <div>
             <label>
-              <div>Add Chat Room:</div>
+              <div className="create-chat">Create Chat Room:</div>
               <div>
                 <input type="text" value={this.state.value} placeholder="Chat Room Name" onChange={(e)=>this.handleChange(e)} />
                 <input className="submit-button" type="submit" value="Add"/>

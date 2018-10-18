@@ -11,12 +11,15 @@
   text-align: center;
   font-size: 1.25em;
   margin: 0;
+  text-shadow: 1px 1px #696969;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 .room-navigation {
   float: left;
   list-style: none;
-  background-color: #C0C0C0;
+  background-color: #b0c4de;
   width: 25%;
   height: 100%;
   margin: 0;
@@ -26,12 +29,14 @@
 
 .message-list {
   float: right;
-  margin-top: 20px;
+  padding-top: 20px;
   margin-left: 0;
   margin-right: 0;
   width: 75%;
+  background-color: #fff0f5;
 
 }
+
 
 
 @keyframes App-logo-spin {

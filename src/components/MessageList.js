@@ -69,13 +69,17 @@ class MessageList extends Component {
             <div className="message-content">{message.content}<span className="message-sentAt">{message.sentAt}</span></div>
           </div>)}
         </div>
-        <div className="newMessage">
-          <form className="message-form" onSubmit={(e)=>this.createMessage(e)}>
-            <div>
-              <input className="messageBox" type="text" size="90" value={this.state.content} placeholder="Type message here" onChange={(e)=>this.handleChange(e)} /><input className="sendButton" type="submit" value="Send"/>
-            </div>
-          </form>
-        </div>
+        {(this.props.activeRoom === '') ?  
+          <div></div> 
+          : 
+          <div className="newMessage">
+            <form className="message-form" onSubmit={(e)=>this.createMessage(e)}>
+              <div>
+                <input className="messageBox" type="text" size="90" value={this.state.content} placeholder="Type message here" onChange={(e)=>this.handleChange(e)} /><input className="sendButton" type="submit" value="Send"/>
+              </div>
+            </form>
+          </div>
+        }
       </div>
     )
   }
