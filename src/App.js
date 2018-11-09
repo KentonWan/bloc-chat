@@ -43,7 +43,7 @@ class App extends Component {
       <div className="App">
         <nav className="room-navigation">
           <header className="App-header">
-            <h1>Bloc Chat</h1>
+            <h1>Real Chat</h1>
           </header>
           <div className="logIn">
             <User firebase={firebase} setUser={this.setUser.bind(this)} user={this.state.user}/>
